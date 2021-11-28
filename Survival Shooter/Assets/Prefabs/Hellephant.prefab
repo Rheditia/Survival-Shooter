@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 208393659}
   - component: {fileID: 208393658}
   - component: {fileID: 208393657}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Hellephant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -276,7 +276,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1537788326}
   - component: {fileID: 1537788327}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -344,7 +344,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 208393656}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Trunk1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -376,7 +376,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2911860762810643293}
   - component: {fileID: 494460076094926449}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Hellephant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -457,6 +457,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: ef39ae7291c751249b296f00bf6fb042, type: 3}
       propertyPath: m_Name
       value: HitParticles
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ef39ae7291c751249b296f00bf6fb042, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ef39ae7291c751249b296f00bf6fb042, type: 3}
       propertyPath: m_LocalPosition.x

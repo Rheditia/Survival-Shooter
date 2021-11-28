@@ -10,7 +10,7 @@ public class EnemyAttack : MonoBehaviour
     Animator anim;
     GameObject player;
     PlayerHealth playerHealth;
-    //EnemyHealth enemyHealth;
+    EnemyHealth enemyHealth;
     bool playerInRange;
     float timer;
 
@@ -25,7 +25,8 @@ public class EnemyAttack : MonoBehaviour
         //mendapatkan komponen Animator
         anim = GetComponent<Animator>();
 
-        //enemyHealth = GetComponent<EnemyHealth>();
+        //Mendapatkan Enemy health
+        enemyHealth = GetComponent<EnemyHealth>();
     }
 
     //Callback jika ada suatu object masuk kedalam trigger
@@ -52,9 +53,15 @@ public class EnemyAttack : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (timer >= timeBetweenAttacks && playerInRange/* && enemyHealth.currentHealth > 0*/)
+        if (timer >= timeBetweenAttacks && playerInRange&& enemyHealth.currentHealth > 0)
         {
             Attack();
+        }
+
+        //mentrigger animasi PlayerDead jika darah player kurang dari sama dengan 0
+        if (playerHealth.currentHealth <= 0)
+        {
+            anim.SetTrigger("PlayerDead");
         }
     }
 
