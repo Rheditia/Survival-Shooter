@@ -14,7 +14,7 @@ public class PlayerShooting : MonoBehaviour
     LineRenderer gunLine;
     AudioSource gunAudio;
     Light gunLight;
-    float effectsDisplayTime = 0.2f;
+    float effectsDisplayTime = 0.15f; //0.2f
 
 
     void Awake()
@@ -35,15 +35,15 @@ public class PlayerShooting : MonoBehaviour
 
         timer += Time.deltaTime;
 
-        if (Input.GetButton("Fire1") && timer >= timeBetweenBullets && Time.timeScale != 0)
-        {
-            Shoot();
-        }
+        //if (Input.GetButton("Fire1") && timer >= timeBetweenBullets && Time.timeScale != 0)
+        //{
+        //    Shoot();
+        //}
 
-        if (timer >= timeBetweenBullets * effectsDisplayTime)
-        {
-            DisableEffects();
-        }
+        //if (timer >= timeBetweenBullets * effectsDisplayTime)
+        //{
+        //    DisableEffects();
+        //}
     }
 
 
@@ -57,8 +57,14 @@ public class PlayerShooting : MonoBehaviour
     }
 
 
-    void Shoot()
+    public void Shoot()
     {
+        //delay shoot untuk command pattern
+        if (timer < timeBetweenBullets)
+        {
+            return;
+        }
+
         timer = 0f;
 
         //Play audio
@@ -99,5 +105,8 @@ public class PlayerShooting : MonoBehaviour
             //set line end position ke range from barrel
             gunLine.SetPosition(1, shootRay.origin + shootRay.direction * range);
         }
+
+        //disable effect untuk command pattern
+        Invoke("DisableEffects", timeBetweenBullets * effectsDisplayTime);
     }
 }

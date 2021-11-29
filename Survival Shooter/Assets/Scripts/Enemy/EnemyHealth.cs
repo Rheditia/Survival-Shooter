@@ -56,6 +56,12 @@ public class EnemyHealth : MonoBehaviour
 
         //Play particle system
         hitParticles.Play();
+
+        //Dead jika health <= 0
+        if (currentHealth <= 0)
+        {
+            Death();
+        }
     }
 
     private void Death()
